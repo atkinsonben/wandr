@@ -71,3 +71,28 @@ export type WeatherCondition =
   | 'Squall' // Keep Squall
   | 'Tornado' // Keep Tornado
   | 'Unknown'; // Keep Unknown for default/error
+
+// Forecast specific to a calendar event's date and location
+export interface EventWeatherForecast {
+  condition: WeatherCondition | null; // Use the existing WeatherCondition type
+  temperature: number | null; // Temperature for the event time/day (could be high temp for the day)
+  // Add high/low if needed based on design, but keep it simple for now
+}
+
+// Combined type for the list items, extending the existing CalendarEvent
+export interface EventForecast extends CalendarEvent {
+  forecast: EventWeatherForecast | null; // Forecast might be null if not available or error
+}
+
+// Type for the list state prop
+export type ListState = 'loading' | 'empty' | 'error' | 'populated';
+
+// Data structure for the daily weather card in the weekly view
+export interface DailyWeatherCardData {
+  id: string; // Use date string or a generated ID
+  date: Date;
+  dayName: string; // "Today", "Mon", "Tue", etc.
+  location: string | null; // Location used for the forecast (event or inferred)
+  forecast: EventWeatherForecast | null; // The weather forecast for that day/location
+  isEventLocation: boolean; // True if the location came from a specific calendar event
+}
