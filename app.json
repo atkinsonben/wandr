@@ -1,5 +1,20 @@
 {
   "expo": {
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location to show relevant weather forecasts."
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "scheme": "nomad-weather",
     "name": "nomad-weather-app",
     "slug": "nomad-weather-app",
     "version": "1.0.0",
@@ -23,6 +38,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "585958e4-5536-42b6-95d7-1e32e7c64455"
+      },
+      "OPENWEATHER_API_KEY": "${process.env.OPENWEATHER_API_KEY}"
     }
   }
 }
