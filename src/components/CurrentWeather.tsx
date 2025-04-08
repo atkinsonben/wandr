@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     flex: 1, // Ensure loading/permission view fills screen
     alignItems: 'center',
   },
-  narrativeLocation: { // Style for "Right now in"
+  narrativeLocation: { 
     fontFamily: 'SpaceGrotesk_400Regular', // Use Space Grotesk Regular
     fontSize: 18,
     marginTop: 50, // Add some space from the top
